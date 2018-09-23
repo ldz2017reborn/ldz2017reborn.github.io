@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="测试一下看看">
+<meta name="description" content="123456789101112131415function Timer() &amp;#123;  this.s1 = 0;  this.s2 = 0;  // 箭头函数  setInterval(() =&amp;gt; this.s1++, 1000);  // 普通函数  setInterval(function () &amp;#123;    this.s2++;  &amp;#125;, 1000);&amp;#125;va">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test_blog">
-<meta property="og:url" content="http://yoursite.com/2018/09/21/test-blog/index.html">
+<meta property="og:title" content="2018-9-23 箭头函数中的一段代码分析">
+<meta property="og:url" content="http://yoursite.com/2018/09/23/2018-9-23-箭头函数中的一段代码分析/index.html">
 <meta property="og:site_name" content="Coding">
-<meta property="og:description" content="测试一下看看">
+<meta property="og:description" content="123456789101112131415function Timer() &amp;#123;  this.s1 = 0;  this.s2 = 0;  // 箭头函数  setInterval(() =&amp;gt; this.s1++, 1000);  // 普通函数  setInterval(function () &amp;#123;    this.s2++;  &amp;#125;, 1000);&amp;#125;va">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-20T23:41:39.202Z">
+<meta property="og:updated_time" content="2018-09-23T07:29:12.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test_blog">
-<meta name="twitter:description" content="测试一下看看">
+<meta name="twitter:title" content="2018-9-23 箭头函数中的一段代码分析">
+<meta name="twitter:description" content="123456789101112131415function Timer() &amp;#123;  this.s1 = 0;  this.s2 = 0;  // 箭头函数  setInterval(() =&amp;gt; this.s1++, 1000);  // 普通函数  setInterval(function () &amp;#123;    this.s2++;  &amp;#125;, 1000);&amp;#125;va">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/21/test-blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/23/2018-9-23-箭头函数中的一段代码分析/"/>
 
 
 
 
 
-  <title>test_blog | Coding</title>
+  <title>2018-9-23 箭头函数中的一段代码分析 | Coding</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/test-blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/2018-9-23-箭头函数中的一段代码分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Dezheng">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test_blog</h1>
+          <h1 class="post-title" itemprop="name headline">2018-9-23 箭头函数中的一段代码分析</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-21T07:39:02+08:00">
-                2018-09-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-23T15:28:33+08:00">
+                2018-09-23
               </time>
             
 
@@ -299,7 +299,17 @@
       
 
       
-        <h2 id="测试一下看看"><a href="#测试一下看看" class="headerlink" title="测试一下看看"></a>测试一下看看</h2>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Timer() &#123;</span><br><span class="line">  this.s1 = 0;</span><br><span class="line">  this.s2 = 0;</span><br><span class="line">  // 箭头函数</span><br><span class="line">  setInterval(() =&gt; this.s1++, 1000);</span><br><span class="line">  // 普通函数</span><br><span class="line">  setInterval(function () &#123;</span><br><span class="line">    this.s2++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var timer = new Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);</span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);</span><br></pre></td></tr></table></figure>
+<p>分析<br><code>var timer = new Timer();</code><br>new<br>1.首先创建一个新的空对象。<br>{}<br>2.接下来，new设置this，使其指向这个新对象timer。</p>
+<p>3.设置this后，调用Timer()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Timer() &#123;</span><br><span class="line">  this.s1 = 0;</span><br><span class="line">  this.s2 = 0;</span><br><span class="line">  // 箭头函数</span><br><span class="line">  setInterval(() =&gt; this.s1++, 1000);</span><br><span class="line">  // 普通函数</span><br><span class="line">  setInterval(function () &#123;</span><br><span class="line">    this.s2++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.接下来这行这个函数的代码。Timer() 给新创建的属性赋值。<br>这个过程<br>{<br>  s1: 0;//会随时间的变化执行++；<br>  s2: 0;//不变。<br>}<br>这里<code>setInterval(() =&gt; this.s1++, 1000);</code>这个this指向我们定义的这个对象，我们定义的对象有执行代码这一步,每过1秒增加1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function () &#123;</span><br><span class="line">    this.s2++;</span><br><span class="line">  &#125;, 1000);</span><br></pre></td></tr></table></figure></p>
+<p>也同样执行，但是其this指向的是window。所以其效果是在window.this++，为undefined++结果是NaN，这个值和上面的timer对象中的s2不产生关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);</span><br></pre></td></tr></table></figure>
+<p>上面的代码就是对timer.s1++每隔1秒执行次，在第3.1秒的时候打印出结果。floor(3.1/1)==3,经过三次加1，得到结果timer.s1 = 3;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码是打印出timer.s2，由于setInterval()函数没有对timer.s2的s2这个属性值操作（它针对window.s2进行了操作），所以打印出结果为初始化的值0。</p>
+<p>如果想让tiemr.s2属性也能递增，可以通过下面的操作实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function Timer() &#123;</span><br><span class="line">  this.s1 = 0;</span><br><span class="line">  this.s2 = 0;</span><br><span class="line">  // 箭头函数</span><br><span class="line">  setInterval(() =&gt; this.s1++, 1000);</span><br><span class="line">  // 普通函数</span><br><span class="line">  that = this;</span><br><span class="line">  setInterval(function () &#123;</span><br><span class="line">    that.s2++;</span><br><span class="line">  &#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var timer = new Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100); </span><br><span class="line">setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);</span><br><span class="line">// s1:  3</span><br><span class="line">// s2:  3</span><br></pre></td></tr></table></figure></p>
+<p>通过把this进行存储。</p>
+
       
     </div>
     
@@ -323,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/09/23/2018-9-22-5-数组的拓展/" rel="next" title="2018-9-22-5 数组的拓展">
+                <i class="fa fa-chevron-left"></i> 2018-9-22-5 数组的拓展
               </a>
             
           </div>
@@ -332,10 +342,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/21/2018-9-20-2-变量的解构赋值/" rel="prev" title="2018-9-20-2 变量的解构赋值">
-                2018-9-20-2 变量的解构赋值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -387,17 +393,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,22 +436,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试一下看看"><span class="nav-number">1.</span> <span class="nav-text">测试一下看看</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
